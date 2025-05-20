@@ -1,0 +1,7 @@
+.python-version
+
+# Environments
+venv1/
+
+#Testing
+test.py
