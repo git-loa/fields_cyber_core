@@ -123,7 +123,8 @@ message = b"SecretMsg"
 
 # Generate a truly random pad of the same length
 pad = os.urandom(len(message))
-
+for m,p in zip(message, pad):
+    print(f"The xor of {m} and {p} is {m}  XOR {p} = {m^p}")
 
 
 # Encrypt: ciphertext = message XOR pad

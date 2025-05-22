@@ -149,6 +149,7 @@ def compute_padding(algorithm='md5',message=None,  output_format='bytes'):
 
 
 # 5. Integrating Our Binary into Python
+# This is where the attack occurs
 def length_extend_sha256(digest_hex: str, len_padded: int, extension_hex: str, binary: str | Path = "./length_ext",) -> str:
     """
     Run the `length_ext` C program and return the forged digest.
@@ -209,7 +210,7 @@ def test_attack(message: bytes, extension: bytes) -> None:
         orig_hash, 
         len(message + padding),               # original message length in bytes
         extension.hex(),                      # hex‑encoded extension          
-        path       # path to your extension binary/script
+        "./length_ext"      # path to your extension binary/script
     )
     print(f"Hash computed with Length Extension: {attack_hash}")
 
